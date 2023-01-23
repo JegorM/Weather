@@ -19,11 +19,7 @@
 							{{ city }}
 						</option>
 					</select>
-					<div :value="city" v-for="city in cities" :key="city">
-						<router-link :to="'/city-info/' + city">
-							<button class="addStadt" @click="onWeatherButtonClick()">Погода</button>
-						</router-link>
-					</div>
+					<button class="addStadt" @click="onWeatherButtonClick()">Погода</button>
 				</div>
 			</div>
 		</div>
@@ -31,7 +27,6 @@
 </template>
 
 <script>
-import { getCityWeather } from "../src/weather";
 export default {
 	data() {
 		return {
@@ -43,11 +38,9 @@ export default {
 	},
 	methods: {
 		onWeatherButtonClick() {
-			console.log(this.searchValue);
-			if (this.searchValue === "") return;
-			getCityWeather(this.searchValue).then((value) => {
-				this.weather = value;
-			});
+			if (this.searchValue === '') return
+
+			this.$router.push(`/city-info/${this.searchValue}`)
 		},
 		onAddButtonClick() {
 			if (this.inputValueAdd != "") {
