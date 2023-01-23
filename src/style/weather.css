@@ -1,0 +1,46 @@
+* {
+  block-size: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 200px;
+}
+.wrap {
+  background-color: aquamarine;
+  border-radius: 20px;
+}
+
+.contForm {
+  align-items: center;
+  justify-content: center;
+  margin: 30px;
+  text-align: center;
+}
+
+.stadt {
+  font-size: 20px;
+
+  margin: 5px;
+}
+
+.searchAndAdd {
+  display: flex;
+  flex-direction: column;
+}
+
+.searchStadt {
+  height: 40px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  padding: 5px;
+}
+
+.addStadt {
+  margin: 0 30px;
+  padding: 10px;
+  border-radius: 20px;
+}
