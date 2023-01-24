@@ -9,7 +9,6 @@
 					<button class="addStadt" @click="onAddButtonClick()">Додати</button>
 				</div>
 			</div>
-			{{ cities }}
 			<div class="contForm">
 				<h1 class="titel">Пошук міста</h1>
 				<p class="stadt">Оберіть місто</p>
@@ -46,9 +45,24 @@ export default {
 			if (this.inputValueAdd != "") {
 				this.cities.push(this.inputValueAdd);
 				this.inputValueAdd = "";
+				this.saveCities();
 			}
 		},
+		saveCities() {
+			const parsed = JSON.stringify(this.cities);
+			localStorage.setItem('cities', parsed);
+		}
 	},
+	mounted() {
+		if (localStorage.getItem('cities')) {
+			try {
+				this.cities = JSON.parse(localStorage.getItem('cities'));
+			} catch (e) {
+				localStorage.removeItem('cities');
+			}
+		}
+	},
+
 };
 </script>
 
